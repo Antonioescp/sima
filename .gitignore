@@ -1,3 +1,9 @@
+# ignore IDEA IDEs config dir
+.idea/
+
+# ignore build folders
+/*build*/
+
 # Prerequisites
 *.d
 
