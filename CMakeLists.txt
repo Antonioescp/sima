@@ -31,6 +31,25 @@ ELSEIF( CMAKE_COMPILER_IS_GNUCXX ) # Any other compiler
     )
 ENDIF()
 
+# Adding google test framework
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib/googletest)
+
+# List of tests to be included
+list(APPEND Tests
+    HelloWorldTest
+)
+
+enable_testing()
+include(GoogleTest)
+
+# Adding every test file to build options, the test name in Tests must be the name
+# of the file containing the code for the test
+foreach(name IN LISTS Tests)
+    add_executable(${name} ${CMAKE_CURRENT_SOURCE_DIR}/test/${name}.cpp)
+    target_link_libraries(${name} GTest::gtest_main)
+    gtest_discover_tests(${name})
+endforeach()
+
 # The sima library
 add_library(sima INTERFACE)
 target_include_directories(sima INTERFACE
