@@ -10,7 +10,7 @@
 namespace Sima {
   
   // TODO Document
-  template <std::floating_point T>
+  template <std::floating_point T = float>
   struct Vector4 {
     T x{};
     T y{};

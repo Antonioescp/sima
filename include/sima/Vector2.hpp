@@ -7,7 +7,7 @@
 #include <sima/Concepts.hpp>
 
 namespace Sima {
-  template <std::floating_point T>
+  template <std::floating_point T = float>
   struct Vector2 {
     T x{};
     T y{};
