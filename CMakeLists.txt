@@ -51,16 +51,22 @@ foreach(name IN LISTS Tests)
 endforeach()
 
 # The sima library
-add_library(sima INTERFACE)
-target_include_directories(sima INTERFACE
-        CMAKE_CURRENT_SOURCE_DIR/src/include
+add_library(sima STATIC 
+  include/sima/Vector2.hpp 
+  include/sima/Vector3.hpp 
+  include/sima/Vector4.hpp
+  include/sima/Concepts.hpp
 )
-target_link_libraries(sima INTERFACE
+set_target_properties(sima PROPERTIES LINKER_LANGUAGE CXX)
+target_include_directories(sima PUBLIC
+        include
+)
+target_link_libraries(sima PRIVATE
     compiler_features
     compiler_options
 )
 
-target_link_libraries(Demo PUBLIC
+target_link_libraries(Demo PRIVATE
     sima
     compiler_features
     compiler_options

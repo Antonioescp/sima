@@ -5,6 +5,7 @@
 #include <cmath>
 
 #include "sima/Concepts.hpp"
+#include "sima/Vector2.hpp"
 
 namespace Sima {
 
@@ -17,6 +18,7 @@ namespace Sima {
 
         Vector3() = default;
         Vector3(T x, T y, T z) : x{x}, y{y}, z{z} {}
+        Vector3(const Vector2<T>& other) : x{other.x}, y{other.y}, z{} {}
 
         Vector3 operator+(const Vector3& other) const {
             return { x + other.x, y + other.y, z + other.z };

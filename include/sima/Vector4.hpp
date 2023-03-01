@@ -12,10 +12,10 @@ namespace Sima {
   // TODO Document
   template <std::floating_point T>
   struct Vector4 {
-    T x;
-    T y;
-    T z;
-    T w;
+    T x{};
+    T y{};
+    T z{};
+    T w{};
 
     Vector4() = default;
     Vector4(T x, T y, T z, T w) : x{x}, y{y}, z{z}, w{w} {}
