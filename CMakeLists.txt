@@ -28,6 +28,8 @@ ELSEIF( CMAKE_COMPILER_IS_GNUCXX ) # Any other compiler
             -Wall # Enable most warnings
             -Wextra # Enable more warnings
             -Werror # Raise warnings as errors
+            -g
+            -O0
     )
 ENDIF()
 
